@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: depl-green
+  labels:
+    app: depl-green
+    color: green
+spec:
+  replicas: 5
+  selector:
+    matchLabels:
+      app: depl-green
+      color: green
+  template:
+    metadata:
+      labels:
+        app: depl-green
+        color: green
+    spec:
+      containers:
+      - name: netflix
+        image: mohan143286/netflix
+        ports:
+        - containerPort: 80
+

@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: depl-blue
+  labels:
+    app: depl-blue
+    color: blue
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: depl-blue
+      color: blue
+  template:
+    metadata:
+      labels:
+        app: depl-blue
+        color: blue
+    spec:
+      containers:
+      - name: netflix
+        image: mohan143286/netflix
+        ports:
+        - containerPort: 80
+
